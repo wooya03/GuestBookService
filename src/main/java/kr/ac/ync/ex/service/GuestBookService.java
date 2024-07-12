@@ -1,15 +1,17 @@
 package kr.ac.ync.ex.service;
 
-import jakarta.persistence.Id;
 import kr.ac.ync.ex.dto.GuestBookDTO;
+import kr.ac.ync.ex.dto.PageRequestDTO;
+import kr.ac.ync.ex.dto.PageResultDTO;
 import kr.ac.ync.ex.entity.GuestBookEntity;
 import kr.ac.ync.ex.exception.CustomException;
-import org.apache.coyote.BadRequestException;
 
 public interface GuestBookService {
     // GuestBook CRUD
 
     Long register(GuestBookDTO guestBookDTO);
+
+    PageResultDTO<GuestBookDTO, GuestBookEntity> getList(PageRequestDTO resultDTO);
 
     default GuestBookEntity dtoToEntity(GuestBookDTO dto){
         return GuestBookEntity.builder()
@@ -32,6 +34,9 @@ public interface GuestBookService {
                 .gno(entity.getGno())
                 .title(entity.getTitle())
                 .content(entity.getContent())
-                .writer(entity.getWriter()).build();
+                .writer(entity.getWriter())
+                .createDate(entity.getCreateDate())
+                .modifiedDate(entity.getModifiedDate())
+                .build();
     }
 }

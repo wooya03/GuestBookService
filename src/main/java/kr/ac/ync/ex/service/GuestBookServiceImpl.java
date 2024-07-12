@@ -1,16 +1,20 @@
 package kr.ac.ync.ex.service;
 
 import kr.ac.ync.ex.dto.GuestBookDTO;
+import kr.ac.ync.ex.dto.PageRequestDTO;
+import kr.ac.ync.ex.dto.PageResultDTO;
 import kr.ac.ync.ex.entity.GuestBookEntity;
 import kr.ac.ync.ex.exception.CustomException;
 import kr.ac.ync.ex.exception.NotFoundGuestBookException;
 import kr.ac.ync.ex.mapper.GuestBookMapper;
 import kr.ac.ync.ex.repository.GuestBookRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.BadRequestException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.function.Function;
 
 @Service
 @RequiredArgsConstructor
@@ -26,6 +30,15 @@ public class GuestBookServiceImpl implements GuestBookService{
         guestBookRepository.save(guestBookEntity);
         return guestBookEntity.getGno();
 
+    }
+
+    @Override
+    public PageResultDTO<GuestBookDTO, GuestBookEntity> getList(PageRequestDTO resultDTO) {
+        Pageable pageable = resultDTO.getPageable(Sort.by("gno").descending());
+        Page<GuestBookEntity> result = guestBookRepository.findAll(pageable);
+
+        Function<GuestBookEntity, GuestBookDTO> fn = (entity -> entityToDTO(entity));
+        return new PageResultDTO<>(result, fn);
     }
 
     @Override

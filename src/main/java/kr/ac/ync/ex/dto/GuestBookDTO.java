@@ -1,9 +1,6 @@
 package kr.ac.ync.ex.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -11,6 +8,8 @@ import java.time.LocalDateTime;
 @Setter
 @Builder
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class GuestBookDTO {
     private Long gno;
     private String title;
