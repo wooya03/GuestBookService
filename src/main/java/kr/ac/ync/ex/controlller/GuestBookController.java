@@ -1,4 +1,4 @@
-package kr.ac.ync.ex.exception.controller;
+package kr.ac.ync.ex.controlller;
 
 import kr.ac.ync.ex.dto.GuestBookDTO;
 import kr.ac.ync.ex.dto.PageRequestDTO;
