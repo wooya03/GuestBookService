@@ -31,8 +31,6 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
-
 	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta' // Querydsl JPA 라이브러리
 	annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta" // 쿼리타입(q)을 생성할 때 필요한 라이브러리
 	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
