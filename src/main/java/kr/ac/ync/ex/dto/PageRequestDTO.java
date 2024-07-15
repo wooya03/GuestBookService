@@ -12,8 +12,8 @@ import org.springframework.data.domain.Sort;
 @Getter
 @ToString
 public class PageRequestDTO {
-    private String title;
-    private String type;
+    private String keyword;
+    private String type; // t(title), c(content), w(writer), tc, tw, tcw
     private  int page;
     private  int size;
 

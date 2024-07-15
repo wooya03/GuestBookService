@@ -36,7 +36,5 @@ class GuestBookRepositoryTest {
 
             guestBookRepository.save(guestBookEntity);
         }
-
-
     }
 }
