@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.function.Function;
 
 @Service
@@ -39,6 +40,12 @@ public class GuestBookServiceImpl implements GuestBookService{
 
         Function<GuestBookEntity, GuestBookDTO> fn = (entity -> entityToDTO(entity));
         return new PageResultDTO<>(result, fn);
+    }
+
+    @Override
+    public List<GuestBookDTO> getSearchList(PageRequestDTO pageRequestDTO) {
+        // querydsl
+        return null;
     }
 
     @Override

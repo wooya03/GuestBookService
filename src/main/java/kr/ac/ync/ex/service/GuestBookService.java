@@ -6,6 +6,8 @@ import kr.ac.ync.ex.dto.PageResultDTO;
 import kr.ac.ync.ex.entity.GuestBookEntity;
 import kr.ac.ync.ex.exception.CustomException;
 
+import java.util.List;
+
 public interface GuestBookService {
     // GuestBook CRUD
 
@@ -22,6 +24,8 @@ public interface GuestBookService {
                 .build();
 
     }
+
+    List<GuestBookDTO> getSearchList(PageRequestDTO pageRequestDTO);
 
     public GuestBookDTO read(Long gno) throws CustomException;
 
