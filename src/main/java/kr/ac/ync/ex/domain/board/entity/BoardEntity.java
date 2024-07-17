@@ -1,6 +1,7 @@
 package kr.ac.ync.ex.domain.board.entity;
 
 import jakarta.persistence.*;
+import kr.ac.ync.ex.domain.member.entity.MemberEntity;
 import kr.ac.ync.ex.global.common.entity.BaseEntity;
 import lombok.*;
 
@@ -19,9 +20,15 @@ public class BoardEntity extends BaseEntity {
     private String title;
     @Column(nullable = false, length = 2000)
     private String content;
+    @ManyToOne
+    private MemberEntity member;
 
     public void changeTitle(String title){
         this.title = title;
+    }
+
+    public void changeContent(String content){
+        this.content = content;
     }
 
 }
