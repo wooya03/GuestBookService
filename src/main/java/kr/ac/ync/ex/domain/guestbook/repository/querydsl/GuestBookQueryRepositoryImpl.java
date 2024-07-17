@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static kr.ac.ync.ex.entity.QGuestBookEntity.guestBookEntity;
+import static kr.ac.ync.ex.domain.guestbook.entity.QGuestBookEntity.guestBookEntity;
 
 @Repository
 @RequiredArgsConstructor
