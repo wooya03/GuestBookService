@@ -1,6 +1,5 @@
 package kr.ac.ync.ex.global.common.dto;
 
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
