@@ -14,7 +14,7 @@ class MemberRepositoryTest {
     MemberRepository memberRepository;
 
     @Test
-    void insertMembers() {
+    void insertMembers() { // 더미 데이터 추가
         IntStream.rangeClosed(1, 100).forEach(i->{
             MemberEntity member = MemberEntity.builder()
                     .email("user"+i+"@ync.ac.kr")
